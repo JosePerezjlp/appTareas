@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter , Route, Routes } from 'react-router-dom';
+import EditTaskPage from './pages/EditTaskPages';
+import HomePages from './pages/HomePages';
+import routes from './config/settings/routes';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return (      
+           <BrowserRouter>
+     <Routes>
+      <Route element={<HomePages />} path={routes.home} />
+      <Route element={<EditTaskPage/> } path={routes.editTask} />
+    </Routes>
+    </BrowserRouter>  
+
   );
 }
 
